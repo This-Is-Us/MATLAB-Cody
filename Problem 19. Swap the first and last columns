@@ -1,0 +1,6 @@
+function B = swap_ends(A)
+B=A;
+[r,c]=size(A);
+B(:,1)=A(:,c);
+B(:,c)=A(:,1);
+end
