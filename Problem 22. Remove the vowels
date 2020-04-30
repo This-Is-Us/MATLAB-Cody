@@ -1,0 +1,21 @@
+function s2 = refcn(s1)
+  s2 = [];
+  s3='aAeEiIoOuU';
+  L=strlength(s1);
+  L1=strlength(s3);
+  flag=0;
+  j=1;
+  for i=1:L
+      for k=1:L1
+          if s1(i)==s3(k)
+              flag=1;
+              continue;
+          end
+      end
+      if flag==0
+          s2(j)=s1(i);
+          j=j+1;
+      end
+      flag=0;
+  end
+end
