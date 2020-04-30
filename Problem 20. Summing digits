@@ -1,0 +1,8 @@
+function b = sumDigits(n)
+  pow=2^n;
+  b = 0;
+  while pow~=0
+      b=b+mod(pow,10);
+      pow=floor(pow/10);
+  end
+end
