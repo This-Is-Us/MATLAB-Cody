@@ -1,0 +1,17 @@
+function c = collatz(n)
+  c=[];
+  a=n;
+  c(1)=n;
+  i=2;
+  while a~=1
+      if mod(a,2)==1
+          a=3*a+1;
+          c(i)=a;
+          i=i+1;
+      else
+          a=a/2;
+          c(i)=a;
+          i=i+1;
+      end
+  end
+end
