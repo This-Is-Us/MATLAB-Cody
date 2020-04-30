@@ -1,0 +1,9 @@
+function y = cleanUp(x)
+  y = x;
+  L=length(y);
+  for i=1:L
+      if (y(i)<0)|(y(i)>10)
+          y(i)=NaN;
+      end
+  end
+end
