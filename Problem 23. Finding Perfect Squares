@@ -1,0 +1,15 @@
+function b = isItSquared(a)
+
+  b = false;
+  L=length(a);
+  for i=1:L
+      c=a(i)^2;
+      for j=1:L
+          if c==a(j)
+              b=true;
+              break;
+          end
+      end
+  end
+
+end
