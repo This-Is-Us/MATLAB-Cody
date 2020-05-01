@@ -1,0 +1,30 @@
+function B = remove_nan_rows(A)
+  C = A;
+  [r,c]=size(C);
+  flag=[];
+  cnt=0;
+  for i=1:r
+      flag(i)=0;
+  end
+  for j=1:r
+      for k=1:c
+          if isnan(C(j,k))
+              flag(j)=1;
+              continue;
+          end
+      end
+  end
+  for i=1:r
+      if flag(i)==0
+          cnt=cnt+1;
+      end
+  end
+  B=zeros(cnt,c);
+  cnt=1;
+  for i=1:r
+      if flag(i)==0
+          B(cnt,:)=A(i,:);
+          cnt=cnt+1;
+      end
+  end
+end
