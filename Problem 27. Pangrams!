@@ -1,0 +1,17 @@
+function tf = isPangram(s)
+  s1='QWERTYUIOPASDFGHJKLZXCVBNM';
+  L=strlength(s);
+  cnt=0;
+  s2=upper(s);
+  for i=1:26
+      if isempty(findstr(s1(i),s2))==false
+          cnt=cnt+1;
+          continue;
+      end
+  end
+  if cnt==26
+      tf=true;
+  else
+      tf=false;
+  end
+end
