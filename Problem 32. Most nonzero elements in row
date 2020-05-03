@@ -1,0 +1,12 @@
+function r = fullest_row(a)
+  [r1,c1]=size(a);
+  cnt=zeros(1,r1);
+  for i=1:r1
+      for j=1:c1
+          if a(i,j)~=0
+              cnt(i)=cnt(i)+1;
+          end
+      end
+  end
+  [m,r]=max(cnt);
+end
