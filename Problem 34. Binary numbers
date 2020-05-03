@@ -1,0 +1,10 @@
+function A = binary_numbers(n)
+   A=zeros(2^n-1,n);
+   for i=0:2^n-1
+       a=dec2bin(i);
+       L=strlength(a);
+       for j=0:L-1
+          A(i+1,n-j)=str2num(a(L-j));
+       end
+   end
+end
