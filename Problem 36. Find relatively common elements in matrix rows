@@ -1,0 +1,37 @@
+function y = common_by_row(x)
+  tmp=[];
+  y=[];
+  z=[];
+  k=1;
+  [r,c]=size(x);
+  for i=1:r
+      for j=1:c
+          if x(i,j)~=NaN
+              if ismember(x(i,j),z)==0
+                  z(k)=x(i,j);
+                  k=k+1;
+              end
+          end
+      end
+  end
+  cnt=0;
+  for k=1:length(z)
+      for i=1:r
+          for j=1:c
+              if x(i,j)==z(k)
+                  cnt=cnt+1;
+              end
+          end
+      end
+      tmp(k)=cnt;
+      cnt=0;
+  end
+  m=1;
+  for i=1:length(z)
+      if tmp(i)>0.5*r
+          y(m)=z(i);
+          m=m+1;
+      end
+  end
+  y=sort(y);
+end
