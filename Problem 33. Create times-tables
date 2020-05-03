@@ -1,0 +1,10 @@
+function m = timestables(n)
+  m=zeros(n,n);
+  for j=:n
+    m(1,j)=j;
+  for i=1:n
+    for j=1:n
+      m(i,j)=i*m(1,j);
+    end
+  end
+end
