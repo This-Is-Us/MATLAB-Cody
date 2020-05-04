@@ -1,0 +1,14 @@
+function out_str = cellstr_joiner(in_cell, delim)
+  c=in_cell;
+  L=length(c);
+  str=[];
+  for i=1:L
+      if i~=L
+        str=[str,c{1,i}];
+        str=[str,delim];
+      else
+          str=[str,c{1,i}];
+      end
+  end
+  out_str=str;
+end
