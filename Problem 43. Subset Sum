@@ -1,0 +1,29 @@
+function ind = subset_sum(v,n)
+   ind=[];
+   com=[];
+   L=length(v);
+   for i=1:L
+       M=nchoosek(v,i);
+       [r,c]=size(M);
+       for j=1:r
+           if sum(M(j,:))==n
+               com=M(j,:);
+               break;
+           end
+       end
+   end
+   L1=length(com);
+   k=1;
+   for i=1:L1
+       for j=1:L
+           if com(i)==v(j)
+               if ismember(j,ind)==0
+                   ind(k)=j;
+                   k=k+1;
+                   continue;
+               end
+           end
+       end
+   end
+   ind=sort(ind);
+end
