@@ -1,0 +1,14 @@
+function b = find_palindrome(a)
+  tmp=a;
+  while true
+    a_or=num2str(tmp);
+    a_re=reverse(a_or);
+    a_sum=str2num(a_or)+str2num(a_re);
+    if num2str(a_sum)==reverse(num2str(a_sum))
+        b=a_sum;
+        break;
+    else 
+        tmp=a_sum;
+    end      
+  end
+end
