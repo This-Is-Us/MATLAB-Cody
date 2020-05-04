@@ -1,0 +1,12 @@
+function total = no_digit_sum(n,m)
+  sum=0;
+  m_c=num2str(m);
+  for i=1:n
+      ch_i=num2str(i);
+      chr=findstr(ch_i,m_c);
+      if isempty(chr)==1
+          sum=sum+i;
+      end
+  end
+  total=sum;
+end
