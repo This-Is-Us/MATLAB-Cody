@@ -1,0 +1,29 @@
+function B = gameOfLife(A)
+    B=A;
+    C=[A,A,A;A,A,A;A,A,A];
+    for i=5:8
+        for j=5:8
+            cnt=0;
+            for m=i-1:i+1
+                for n=j-1:j+1
+                    if m==i&&n==j
+                        cnt=cnt;
+                    else
+                        if C(m,n)==1
+                            cnt=cnt+1;
+                        end
+                    end
+                end
+            end
+            if C(i,j)==1 %该细胞现在存活
+                if cnt>3||cnt<2
+                    B(i-4,j-4)=0;
+                end
+            else         %该细胞现在死亡
+                if cnt==3
+                    B(i-4,j-4)=1;
+                end
+            end
+        end
+    end
+end
