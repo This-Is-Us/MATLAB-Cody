@@ -1,0 +1,6 @@
+function total = number_sum(str)
+  total = 0;
+  num_str=regexp(str,'\d*\.?\d*','match');
+  num=str2double(num_str);
+  total=sum(num);
+end
