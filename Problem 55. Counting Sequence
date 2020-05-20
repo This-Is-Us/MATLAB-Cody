@@ -1,0 +1,22 @@
+function y = CountSeq(x)
+  ele=[];
+  cnt=[];
+  ele=[ele x(1)];
+  cnt=ones(1,20);
+  L=length(x);
+  k=1;
+  for i=2:L
+      if x(i)==x(i-1)
+          cnt(k)=cnt(k)+1;
+      else
+          ele=[ele x(i)];
+          k=k+1;
+      end
+  end
+  L1=length(ele);
+  y=zeros(1,2*L1);
+  for i=1:L1
+      y(2*i-1)=cnt(i);
+      y(2*i)=ele(i);
+  end
+end
