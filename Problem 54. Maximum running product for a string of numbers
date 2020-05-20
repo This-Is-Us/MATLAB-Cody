@@ -1,0 +1,13 @@
+function i = running_product(s)
+  L=length(s);
+  L1=L-4;
+  tmp=0;
+  i=0;
+  for j=1:L1
+      m=str2num(s(j))*str2num(s(j+1))*str2num(s(j+2))*str2num(s(j+3))*str2num(s(j+4));
+      if m>tmp
+          tmp=m;
+          i=j;
+      end
+  end
+end
