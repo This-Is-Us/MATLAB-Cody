@@ -1,0 +1,23 @@
+function c = goldbach2(n)
+  p1=[];
+  p2=[];
+  c=0;
+  primes=[];
+  for i=1:n
+      if isprime(i)==1
+          primes=[primes i];
+      end
+  end
+  len=length(primes);
+  for i=1:len
+      for j=1:len
+          if primes(i)+primes(j)==n
+              if ismember(j,p1)==0
+                  p1=[p1 i];
+                  p2=[p2 j];
+                  c=c+1;
+              end
+          end
+      end
+  end
+end
