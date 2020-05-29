@@ -1,0 +1,18 @@
+function [p1,p2] = goldbach(n)
+  primes=[];
+  for i=1:n
+      if isprime(i)==1
+          primes=[primes i];
+      end
+  end
+  len=length(primes);
+  for i=1:len
+      for j=1:len
+          if primes(i)+primes(j)==n
+              p1=primes(i);
+              p2=primes(j);
+              break;
+          end
+      end
+  end
+end
