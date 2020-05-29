@@ -1,0 +1,22 @@
+function b = matchPattern(a)
+  b=[];
+  len=length(a(1,:))-1;
+  [r,c]=size(a);
+  pattern=zeros(r-1,len);
+  for j=1:r
+      for i=1:len
+          if a(j,i+1)>a(j,i)
+              pattern(j,i)=1;
+          elseif a(j,i+1)<a(j,i)
+              pattern(j,i)=-1;
+          else
+              pattern(j,i)=0;
+          end
+      end
+  end
+  for j=2:r
+      if isequal(pattern(j,:),pattern(1,:))==1
+          b=[b j];
+      end
+  end
+end
