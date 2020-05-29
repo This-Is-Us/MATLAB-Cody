@@ -1,0 +1,25 @@
+function wins=ticTacToe(a)
+    flag=0;
+    wins=[];
+    blank=find(a==0);
+    for i=1:length(blank)
+        a(blank(i))=1;
+        sum_c1=sum(a(:,1));
+        sum_c2=sum(a(:,2));
+        sum_c3=sum(a(:,3));
+        sum_r1=sum(a(1,:));
+        sum_r2=sum(a(2,:));
+        sum_r3=sum(a(3,:));
+        sum_diag1=a(1)+a(5)+a(9);
+        sum_diag2=a(3)+a(5)+a(7);
+        s=[sum_c1,sum_c2,sum_c3,sum_r1,sum_r2,sum_r3,sum_diag1,sum_diag2];
+        if isempty(find(s)==3)==0
+            flag=1;
+            wins=[wins blank(i)];
+        end
+        a(blank(i))=0;
+    end
+    if flag==0
+        wins=[wins 0];
+    end
+end
