@@ -1,0 +1,21 @@
+function y = common_by_row(x)
+  y=[];
+  [r,c]=size(x);
+  if r>0
+      a=x(1,:);
+      cnt=zeros(1,c);
+      for j=1:c
+          for i=1:r
+              if isempty(find(x(i,:)==x(1,j)))==0
+                  cnt(j)=cnt(j)+1;
+              end
+          end
+      end
+      for j=1:c
+          if cnt(j)==r&&x(1,j)~=NaN&&ismember(x(1,j),y)==0
+              y=[y x(1,j)];
+          end
+      end
+      y=sort(y);
+  end
+end
