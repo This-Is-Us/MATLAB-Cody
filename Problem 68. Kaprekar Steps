@@ -1,0 +1,36 @@
+function y = KaprekarSteps(x)
+    y=0;
+  while x<1000
+      x=x*10;
+  end
+  x1=floor(x/1000);
+  x2=floor((x-x1*1000)/100);
+  x3=floor((x-x1*1000-x2*100)/10);
+  x4=mod(x,10);
+  if x1==x2&&x2==x3&&x3==x4
+      y=Inf;
+  elseif x==6174
+      y=0;
+  else
+      x_ori=[x1,x2,x3,x4];
+      x_ori=sort(x_ori);
+      x_inv=fliplr(x_ori);
+      dif=0;
+      while dif ~=6174
+          x_1=1000*x_inv(1)+100*x_inv(2)+10*x_inv(3)+x_inv(4);
+          x_2=1000*x_ori(1)+100*x_ori(2)+10*x_ori(3)+x_ori(4);
+          dif=x_1-x_2;
+          y=y+1;
+          while dif<1000
+              dif=dif*10;
+          end
+          dif1=floor(dif/1000);
+          dif2=floor((dif-dif1*1000)/100);
+          dif3=floor((dif-dif1*1000-dif2*100)/10);
+          dif4=mod(dif,10);
+          dif_ori=[dif1,dif2,dif3,dif4];
+          x_ori=sort(dif_ori);
+          x_inv=fliplr(x_ori);
+       end
+  end
+end
