@@ -1,0 +1,15 @@
+function t = read_and_interp(s)
+  temp=[];
+  r=length(s)-1;
+  s1=s(2:length(s));
+  for i=1:r
+      a=str2num(s1{i});
+      temp=[temp a(2)];
+  end
+  for i=1:r
+      if temp(i)==9999
+          temp(i)=temp(i-1)+1;
+      end
+  end
+  t=temp;
+end
