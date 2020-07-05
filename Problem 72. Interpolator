@@ -1,0 +1,13 @@
+function vb = interpolator(va, a, b)
+  flag1=find(a==va);
+  if isempty(flag1)==0
+      vb=b(flag1);
+  else
+      for i=1:length(a)-1
+          if va>a(i)&&va<a(i+1)
+            vb=(b(i)+b(i+1))/2;
+            break;
+          end
+      end
+  end
+end
