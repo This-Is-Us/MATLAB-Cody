@@ -1,0 +1,32 @@
+function tf = isBalanced(n)
+  left=0;
+  right=0;
+  tf = false;
+  if n>0&&n<10
+      tf=true;
+  else
+      n_str=num2str(n);
+      len=length(n_str);
+      if mod(len,2)==0
+          for i=1:len/2
+             left=left+str2num(n_str(i));
+          end
+          for i=(len/2)+1:len
+             right=right+str2num(n_str(i));
+          end
+          if left==right
+              tf=true;
+          end
+      else
+          for i=1:(len-1)/2
+              left=left+str2num(n_str(i));
+          end
+          for i=(len+1)/2+1:len
+              right=right+str2num(n_str(i));
+          end
+          if left==right
+              tf=true;
+          end
+      end
+  end
+end
