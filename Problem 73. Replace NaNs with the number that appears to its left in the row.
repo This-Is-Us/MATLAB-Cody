@@ -1,0 +1,15 @@
+function y = replace_nans(x)
+  len=length(x);
+  for i=1:len
+      if i==1
+          if isnan(x(i))==1
+              x(i)=0;
+          end
+      else
+          if isnan(x(i))==1
+              x(i)=x(i-1);
+          end
+      end
+  end
+  y=x;
+end
