@@ -1,0 +1,27 @@
+function names_out = clean_list(names_in)
+  names_out = {};
+  names_out_copy={};
+  names_in_copy=names_in;
+  len=length(names_in);
+  for i=1:len
+      names_in_copy{i}=lower(names_in{i});
+  end
+  for i=1:len
+      len1=length(names_out);
+      if len1==0
+          names_out=[names_out names_in{i}];
+          names_out_copy=[names_out_copy names_in_copy{i}];
+      else
+          flag=0;
+          for j=1:len1
+              if strcmp(names_out_copy{j},names_in_copy{i})==1
+                  flag=1;
+              end
+          end
+          if flag==0
+              names_out=[names_out names_in{i}];
+              names_out_copy=[names_out_copy names_in_copy{i}];
+          end
+      end
+  end
+end
