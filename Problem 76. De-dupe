@@ -1,0 +1,9 @@
+function b = dedupe(a)
+  b = [];
+  len=length(a);
+  for i=1:len
+      if isempty(find(b==a(i)))==1
+          b=[b a(i)];
+      end
+  end
+end
